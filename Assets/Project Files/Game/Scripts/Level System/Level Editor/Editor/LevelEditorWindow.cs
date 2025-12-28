@@ -952,7 +952,7 @@ namespace Watermelon.SquadShooter
             selectedToolbarTab = GUILayout.Toolbar(selectedToolbarTab, toolbarTab);
             itemsListWidthRect = GUILayoutUtility.GetRect(1, Screen.width, 0, 0, GUILayout.ExpandWidth(true));
 
-            if((itemsListWidthRect.width > 1) && (Event.current.type == EventType.Repaint))
+            if((itemsListWidthRect.width > 1) && (Event.current.type == UnityEngine.EventType.Repaint))
             {
                 currentItemListWidth = itemsListWidthRect.width;
             }

@@ -322,7 +322,7 @@ namespace Watermelon
 
                 if (GUI.GetNameOfFocusedControl().Equals("tempPresetName"))
                 {
-                    if ((Event.current.type == EventType.KeyDown) && (Event.current.keyCode == KeyCode.Return))
+                    if ((Event.current.type == UnityEngine.EventType.KeyDown) && (Event.current.keyCode == KeyCode.Return))
                     {
                         ConfirmButtonPressed();
                         Repaint();

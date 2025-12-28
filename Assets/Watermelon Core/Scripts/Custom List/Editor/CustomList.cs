@@ -445,7 +445,7 @@ namespace Watermelon.List
 
             EditorGUI.indentLevel = prevIndent;
 
-            if (currentEvent.isMouse && (ArraySize() > 0) && (currentEvent.type != EventType.Used) && (!ignoreDragEvents))
+            if (currentEvent.isMouse && (ArraySize() > 0) && (currentEvent.type != UnityEngine.EventType.Used) && (!ignoreDragEvents))
             {
                 HandleDraggingDetection();
             }
@@ -454,7 +454,7 @@ namespace Watermelon.List
         private void HandleKeyboardArrows()
         {
 
-            if((Event.current.type != EventType.KeyDown) || IgnoreKeyboardArrows || (ArraySize() == 0))
+            if((Event.current.type != UnityEngine.EventType.KeyDown) || IgnoreKeyboardArrows || (ArraySize() == 0))
             {
                 return;
             }
@@ -581,7 +581,7 @@ namespace Watermelon.List
                 return;
             }
 
-            if(!((currentEvent.type == EventType.Layout) || (currentEvent.type == EventType.Repaint)))
+            if(!((currentEvent.type == UnityEngine.EventType.Layout) || (currentEvent.type == UnityEngine.EventType.Repaint)))
             {
                 return;
             }
@@ -890,7 +890,7 @@ namespace Watermelon.List
                 DrawElementBody(currentElementProperty, style);
             }
 
-            if ((!dragging) &&  currentEvent.type == EventType.MouseDown && rect.Contains(currentEvent.mousePosition))
+            if ((!dragging) &&  currentEvent.type == UnityEngine.EventType.MouseDown && rect.Contains(currentEvent.mousePosition))
             {
                 lastMouseDownPosition = currentEvent.mousePosition;
                 lastMouseDownIndex = index;
@@ -900,7 +900,7 @@ namespace Watermelon.List
 
         private void DrawElementHeader(SerializedProperty currentElementProperty, int index, Rect elementRect, CustomListStyle style)
         {
-            if (Event.current.type == EventType.Repaint)
+            if (Event.current.type == UnityEngine.EventType.Repaint)
             {
                 DrawElementBackground(elementHeaderRect, isSelected, style);
                 style.dragHandle.guiStyle.Draw(draggingHandleRect, false, false, false, false);
@@ -924,7 +924,7 @@ namespace Watermelon.List
             {
                 GUI.Label(removeButtonRect, style.removeElementButton.content, style.removeElementButton.guiStyle);
 
-                if ((!dragging) && (currentEvent.type == EventType.MouseUp) && removeButtonRect.Contains(currentEvent.mousePosition))
+                if ((!dragging) && (currentEvent.type == UnityEngine.EventType.MouseUp) && removeButtonRect.Contains(currentEvent.mousePosition))
                 {
                     selectedIndex = index;
                     RemoveElement();
@@ -938,7 +938,7 @@ namespace Watermelon.List
             headerButtonRect.xMax = labelRect.xMax;
 
             
-            if ((!dragging) && (currentEvent.type == EventType.MouseUp) &&  headerButtonRect.Contains(currentEvent.mousePosition))
+            if ((!dragging) && (currentEvent.type == UnityEngine.EventType.MouseUp) &&  headerButtonRect.Contains(currentEvent.mousePosition))
             {
                 if (selectedIndex != index)
                 {
@@ -1039,7 +1039,7 @@ namespace Watermelon.List
         #region style functions
         private void HandleDrawingBackgroundConfiguration(Rect rect, CustomListStyle.BackgroundConfiguration configuration)
         {
-            if (currentEvent.type == EventType.Repaint && (configuration.rects != null))
+            if (currentEvent.type == UnityEngine.EventType.Repaint && (configuration.rects != null))
             {
                 foreach (CustomListStyle.ColorRect colorRect in configuration.rects)
                 {
@@ -1076,18 +1076,18 @@ namespace Watermelon.List
         {
             if (!dragging)
             {
-                if ((currentEvent.type == EventType.MouseDrag) && globalRect.Contains(currentEvent.mousePosition) && (currentEvent.delta.magnitude < 5f) &&  ((lastMouseDownPosition - currentEvent.mousePosition).magnitude <= 1f + Mathf.Epsilon)) // 5f is very arbitrary number and this condition is here to fix bug with Object field
+                if ((currentEvent.type == UnityEngine.EventType.MouseDrag) && globalRect.Contains(currentEvent.mousePosition) && (currentEvent.delta.magnitude < 5f) &&  ((lastMouseDownPosition - currentEvent.mousePosition).magnitude <= 1f + Mathf.Epsilon)) // 5f is very arbitrary number and this condition is here to fix bug with Object field
                 {
                     DraggingStarted();
                 }
             }
             else
             {
-                if (currentEvent.type == EventType.MouseDrag)
+                if (currentEvent.type == UnityEngine.EventType.MouseDrag)
                 {
                     UpdateDrag();
                 }
-                else if (currentEvent.type == EventType.MouseUp)
+                else if (currentEvent.type == UnityEngine.EventType.MouseUp)
                 {
                     DraggingFinished();
                 }

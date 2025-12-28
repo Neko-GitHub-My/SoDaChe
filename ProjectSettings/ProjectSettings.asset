@@ -163,7 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.Template.SquadShooter
-    Standalone: com.Template.Squad-Shooter
+    Standalone: com.DefaultCompany.SquadShooter
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -775,7 +775,7 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
-    Standalone: 1
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel: {}
